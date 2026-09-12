@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Inter", "DM Sans", -apple-system, sans-serif;
+  --font-display: "Outfit", "Playfair Display", sans-serif;
+  --font-mono: "JetBrains Mono", "DM Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; color-scheme: dark; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: #e2e8f0;
+  background: #060911;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+
+/* Custom Futuristic Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: rgba(6, 9, 17, 0.8); }
+::-webkit-scrollbar-thumb { background: rgba(0, 242, 254, 0.2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 242, 254, 0.45); }
+
+/* Futuristic Pathly Shell with Mesh Glow */
+.pathly-shell {
+  min-height: 100vh;
+  background-color: #060911;
+  background-image: 
+    radial-gradient(circle at 8% 12%, rgba(0, 242, 254, 0.09), transparent 32rem),
+    radial-gradient(circle at 92% 16%, rgba(157, 78, 221, 0.10), transparent 36rem),
+    radial-gradient(circle at 50% 90%, rgba(5, 213, 179, 0.07), transparent 42rem),
+    linear-gradient(rgba(0, 242, 254, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 242, 254, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+  color: #e2e8f0;
+}
+
+/* HUD Glass Panel & Paper Compatibility */
+.paper, .hud-panel {
+  background: rgba(10, 16, 30, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 242, 254, 0.14);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+}
+
+.hud-panel-purple {
+  background: rgba(16, 12, 32, 0.72);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(157, 78, 221, 0.22);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.hud-panel-teal {
+  background: rgba(9, 20, 26, 0.72);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(5, 213, 179, 0.20);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Typography & Eyebrows */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #00f2fe;
+}
+
+.serif {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Navigation items */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.75rem;
+  color: #8fa0b5;
+  font-size: 0.86rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.nav-item:hover {
+  color: #00f2fe;
+  background: rgba(0, 242, 254, 0.08);
+  border-color: rgba(0, 242, 254, 0.18);
+  transform: translateX(2px);
+}
+
+.nav-item.active {
+  color: #ffffff;
+  background: linear-gradient(90deg, rgba(0, 242, 254, 0.16) 0%, rgba(0, 242, 254, 0.04) 100%);
+  border-color: rgba(0, 242, 254, 0.35);
+  box-shadow: inset 3px 0 0 #00f2fe, 0 0 15px rgba(0, 242, 254, 0.12);
+}
+
+/* Soft grid & Cyber patterns */
+.soft-grid {
+  background-color: rgba(9, 17, 30, 0.8);
+  background-image: 
+    linear-gradient(rgba(0, 242, 254, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 242, 254, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border: 1px solid rgba(0, 242, 254, 0.15);
+}
+
+/* Career and Holographic Cards */
+.career-card {
+  transition: transform 0.25s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.career-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 242, 254, 0.18);
+}
+
+/* Futuristic HUD Corner Brackets */
+.hud-corner {
+  position: relative;
+}
+.hud-corner::before, .hud-corner::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+}
+.hud-corner::before {
+  top: 0; left: 0;
+  border-top: 2px solid #00f2fe;
+  border-left: 2px solid #00f2fe;
+}
+.hud-corner::after {
+  bottom: 0; right: 0;
+  border-bottom: 2px solid #00f2fe;
+  border-right: 2px solid #00f2fe;
+}
+
+/* Subtle Glowing Accents */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(157, 78, 221, 0.25);
+}
+
+.glow-teal {
+  box-shadow: 0 0 20px rgba(5, 213, 179, 0.25);
+}
+
+/* Pulse animation */
+@keyframes hud-pulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.97); }
+}
+
+.animate-hud-pulse {
+  animation: hud-pulse 3s ease-in-out infinite;
+}
+
+@keyframes wave-bar {
+  0%, 100% { height: 15%; }
+  50% { height: 95%; }
+}
+
+.wave-bar-anim {
+  animation: wave-bar 1.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
