@@ -225,11 +225,10 @@ function CareerCard({
         : "bg-cyan-950/60 text-cyan-300 border-cyan-500/30";
   return (
     <article
-      className={`career-card relative rounded-2xl border p-5 backdrop-blur-xl transition-all ${
-        selected
+      className={`career-card relative rounded-2xl border p-5 backdrop-blur-xl transition-all ${selected
           ? "border-cyan-400 bg-[#0d1c2e]/90 shadow-[0_0_24px_rgba(0,242,254,0.18)]"
           : "border-slate-800 bg-[#091120]/80 hover:border-cyan-500/30 hover:bg-[#0c1527]"
-      }`}
+        }`}
     >
       <div className="flex items-start justify-between gap-3">
         <div className={`grid h-10 w-10 place-items-center rounded-xl border ${tone}`}>
@@ -425,7 +424,7 @@ function Overview({
                 onClick={() =>
                   setSelectedCareer(
                     CAREER_PATHS.find(career => career.slug === item.slug) ||
-                      selectedCareer
+                    selectedCareer
                   )
                 }
                 className="rounded-xl border border-slate-800 bg-[#060c18] p-4 text-left hover:border-cyan-500/40 hover:bg-[#0a1324] transition-all"
@@ -908,8 +907,8 @@ function VoiceView({
         }
         const permission = navigator.permissions?.query
           ? await navigator.permissions
-              .query({ name: "microphone" as PermissionName })
-              .catch(() => null)
+            .query({ name: "microphone" as PermissionName })
+            .catch(() => null)
           : null;
         if (active)
           setMicrophonePermission(
@@ -1386,15 +1385,14 @@ function VoiceView({
               <div className="absolute inset-0 rounded-full border-2 border-teal-400/60 animate-pulse" />
             )}
             <div
-              className={`relative grid h-28 w-28 place-items-center rounded-full transition-all duration-500 ${
-                listening
+              className={`relative grid h-28 w-28 place-items-center rounded-full transition-all duration-500 ${listening
                   ? "bg-gradient-to-br from-cyan-500 to-teal-400 text-slate-950 shadow-[0_0_35px_rgba(0,242,254,0.6)]"
                   : speaking
                     ? "bg-gradient-to-br from-teal-500 to-emerald-400 text-slate-950 shadow-[0_0_35px_rgba(20,184,166,0.6)]"
                     : status === "processing"
                       ? "bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-[0_0_30px_rgba(168,85,247,0.5)] animate-pulse"
                       : "bg-[#09152a] text-cyan-400 border border-cyan-500/30 shadow-[0_0_20px_rgba(0,242,254,0.15)]"
-              }`}
+                }`}
             >
               {listening ? (
                 <Mic size={38} className="animate-bounce" />
@@ -1412,13 +1410,12 @@ function VoiceView({
               (height, i) => (
                 <div
                   key={i}
-                  className={`w-1 rounded-full transition-all duration-200 ${
-                    listening
+                  className={`w-1 rounded-full transition-all duration-200 ${listening
                       ? "bg-cyan-400 animate-pulse"
                       : speaking
                         ? "bg-teal-400 animate-pulse"
                         : "bg-slate-800"
-                  }`}
+                    }`}
                   style={{
                     height:
                       listening || speaking
@@ -1434,15 +1431,14 @@ function VoiceView({
           {/* Status readout badge */}
           <div className="mt-3 flex items-center justify-center gap-2">
             <span
-              className={`w-2 h-2 rounded-full ${
-                listening
+              className={`w-2 h-2 rounded-full ${listening
                   ? "bg-cyan-400 animate-ping"
                   : speaking
                     ? "bg-teal-400 animate-pulse"
                     : status === "processing"
                       ? "bg-purple-400 animate-pulse"
                       : "bg-emerald-400"
-              }`}
+                }`}
             />
             <p className="text-sm font-semibold tracking-wide text-white font-mono uppercase">
               {statusLabel}
@@ -1498,11 +1494,10 @@ function VoiceView({
           <div className="mt-6 flex flex-wrap justify-center gap-2.5">
             <Button
               onClick={toggleListening}
-              className={`rounded-xl font-medium tracking-wide shadow-lg transition-all ${
-                listening
+              className={`rounded-xl font-medium tracking-wide shadow-lg transition-all ${listening
                   ? "bg-rose-600 hover:bg-rose-500 text-white shadow-[0_0_20px_rgba(225,29,72,0.4)]"
                   : "bg-gradient-to-r from-cyan-500 to-teal-400 hover:from-cyan-400 hover:to-teal-300 text-slate-950 font-bold shadow-[0_0_20px_rgba(0,242,254,0.35)]"
-              }`}
+                }`}
             >
               {listening ? (
                 <>
@@ -1801,13 +1796,12 @@ function TopicExplainer() {
             return (
               <div
                 key={id}
-                className={`rounded-xl p-3 text-center border transition-all ${
-                  isCurrent
+                className={`rounded-xl p-3 text-center border transition-all ${isCurrent
                     ? "bg-teal-950/60 border-teal-400 text-teal-300 shadow-[0_0_15px_rgba(5,213,179,0.2)] animate-pulse"
                     : isCompleted || (stage === "ready" && index === 4)
                       ? "bg-[#0a1a24] border-emerald-500/40 text-emerald-300"
                       : "bg-[#080d18] border-slate-800 text-slate-500"
-                }`}
+                  }`}
               >
                 <span className="block font-mono text-[10px] uppercase tracking-wider mb-0.5">
                   0{index + 1} // STAGE
@@ -1989,7 +1983,7 @@ function TopicExplainer() {
           <p className="mx-auto mt-2 max-w-lg text-xs leading-6 text-slate-400">
             Submit a science concept, engineering principle, or algorithm above to generate an explainer video lesson with multi-scene storyboard.
           </p>
-        </div>
+        </HudCard>
       )}
     </div>
   );
@@ -2186,11 +2180,10 @@ function FileAnalyzer({
             <Button
               onClick={analyze}
               disabled={analysis.isPending || !text.trim()}
-              className={`mt-5 w-full h-11 rounded-xl font-bold text-slate-950 tracking-wide shadow-[0_0_20px_rgba(0,242,254,0.25)] transition-all flex items-center justify-center gap-2 ${
-                isResume
+              className={`mt-5 w-full h-11 rounded-xl font-bold text-slate-950 tracking-wide shadow-[0_0_20px_rgba(0,242,254,0.25)] transition-all flex items-center justify-center gap-2 ${isResume
                   ? "bg-gradient-to-r from-amber-400 to-orange-400 hover:from-amber-300 hover:to-orange-300"
                   : "bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400"
-              }`}
+                }`}
             >
               {analysis.isPending ? (
                 <>
@@ -2564,14 +2557,14 @@ function RoadmapView({
           onClick={() =>
             isAuthenticated
               ? save.mutate({
-                  careerSlug: selectedCareer.slug,
-                  roadmap:
-                    roadmap ||
-                    selectedCareer.milestones
-                      .map(item => item.title)
-                      .join("\n"),
-                  progress,
-                })
+                careerSlug: selectedCareer.slug,
+                roadmap:
+                  roadmap ||
+                  selectedCareer.milestones
+                    .map(item => item.title)
+                    .join("\n"),
+                progress,
+              })
               : startLogin()
           }
           variant="outline"
@@ -2611,10 +2604,10 @@ function QuizView({ isAuthenticated }: { isAuthenticated: boolean }) {
 
   const score = submitted
     ? questions.reduce(
-        (total, question) =>
-          total + (answers[question.id] === question.answer ? 1 : 0),
-        0
-      )
+      (total, question) =>
+        total + (answers[question.id] === question.answer ? 1 : 0),
+      0
+    )
     : 0;
 
   const percentage = questions.length > 0 ? Math.round((score / questions.length) * 100) : 0;
@@ -2648,11 +2641,10 @@ function QuizView({ isAuthenticated }: { isAuthenticated: boolean }) {
             <button
               key={preset}
               onClick={() => setTopic(preset)}
-              className={`rounded-lg border px-2.5 py-1 text-xs font-mono transition-all ${
-                topic === preset
+              className={`rounded-lg border px-2.5 py-1 text-xs font-mono transition-all ${topic === preset
                   ? "border-cyan-400/60 bg-cyan-950/60 text-cyan-200 shadow-[0_0_10px_rgba(0,242,254,0.25)]"
                   : "border-slate-800 bg-[#091120] text-slate-400 hover:border-cyan-500/30 hover:text-cyan-300"
-              }`}
+                }`}
             >
               {preset}
             </button>
@@ -2748,22 +2740,20 @@ function QuizView({ isAuthenticated }: { isAuthenticated: boolean }) {
                             !submitted &&
                             setAnswers({ ...answers, [question.id]: optionIndex })
                           }
-                          className={`group flex items-start gap-3 rounded-xl border p-3.5 text-left text-sm transition-all duration-200 ${
-                            isCorrect
+                          className={`group flex items-start gap-3 rounded-xl border p-3.5 text-left text-sm transition-all duration-200 ${isCorrect
                               ? "border-emerald-400 bg-emerald-950/50 text-emerald-200 shadow-[0_0_16px_rgba(16,185,129,0.3)]"
                               : isWrong
                                 ? "border-rose-500 bg-rose-950/50 text-rose-200 shadow-[0_0_16px_rgba(244,63,94,0.3)]"
                                 : isSelected
                                   ? "border-cyan-400 bg-cyan-950/40 text-cyan-200 shadow-[0_0_15px_rgba(0,242,254,0.25)]"
                                   : "border-slate-800 bg-[#060c18] text-slate-300 hover:border-cyan-500/40 hover:bg-[#081224]"
-                          }`}
+                            }`}
                         >
                           <span
-                            className={`grid h-5 w-5 shrink-0 place-items-center rounded-md font-mono text-[10px] font-bold ${
-                              isSelected
+                            className={`grid h-5 w-5 shrink-0 place-items-center rounded-md font-mono text-[10px] font-bold ${isSelected
                                 ? "bg-cyan-400 text-slate-950"
                                 : "bg-slate-800 text-slate-400 group-hover:text-white"
-                            }`}
+                              }`}
                           >
                             {String.fromCharCode(65 + optionIndex)}
                           </span>
@@ -2776,19 +2766,17 @@ function QuizView({ isAuthenticated }: { isAuthenticated: boolean }) {
                   {/* Post-submission Review Explanations */}
                   {submitted && (
                     <div
-                      className={`mt-4 rounded-xl border p-4 text-xs font-mono leading-relaxed ${
-                        answers[question.id] === question.answer
+                      className={`mt-4 rounded-xl border p-4 text-xs font-mono leading-relaxed ${answers[question.id] === question.answer
                           ? "border-emerald-500/30 bg-emerald-950/30 text-emerald-200"
                           : "border-amber-500/30 bg-amber-950/30 text-amber-200"
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center gap-2 mb-1.5">
                         <span
-                          className={`inline-block h-2 w-2 rounded-full ${
-                            answers[question.id] === question.answer
+                          className={`inline-block h-2 w-2 rounded-full ${answers[question.id] === question.answer
                               ? "bg-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.8)]"
                               : "bg-amber-400 shadow-[0_0_8px_rgba(245,158,11,0.8)]"
-                          }`}
+                            }`}
                         />
                         <b className="uppercase tracking-wider">
                           {answers[question.id] === question.answer
@@ -2846,13 +2834,12 @@ function QuizView({ isAuthenticated }: { isAuthenticated: boolean }) {
                   </p>
                 </div>
                 <div
-                  className={`grid h-12 w-12 place-items-center rounded-xl font-mono text-sm font-bold shadow-lg ${
-                    percentage >= 80
+                  className={`grid h-12 w-12 place-items-center rounded-xl font-mono text-sm font-bold shadow-lg ${percentage >= 80
                       ? "border border-emerald-500/50 bg-emerald-950/60 text-emerald-300 shadow-[0_0_20px_rgba(16,185,129,0.35)]"
                       : percentage >= 50
                         ? "border border-cyan-500/50 bg-cyan-950/60 text-cyan-300 shadow-[0_0_20px_rgba(0,242,254,0.3)]"
                         : "border border-rose-500/50 bg-rose-950/60 text-rose-300 shadow-[0_0_20px_rgba(244,63,94,0.3)]"
-                  }`}
+                    }`}
                 >
                   {percentage >= 80 ? "S" : percentage >= 60 ? "A" : "B"}
                 </div>
